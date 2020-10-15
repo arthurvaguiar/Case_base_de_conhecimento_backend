@@ -48,8 +48,12 @@ public class TopicoService {
 	}
 
 	private void updateData(Topico entity, Topico obj) {
+		entity.setId(obj.getId());
 		entity.setTitulo(obj.getTitulo());
 		entity.setConteudo(obj.getConteudo());
+		entity.setStatus(obj.isStatus());
+		entity.setCategoria(obj.getCategoria());
+		entity.setDataCriacao(obj.getDataCriacao());
 
 	}
 

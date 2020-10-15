@@ -22,8 +22,6 @@ public class TestConfig implements CommandLineRunner {
 		//Topico t1 = new Topico(null, "Teste", "Teste", Categoria.COMPRAS, Status.ATIVO);
 		
 		//topicoRepository.saveAll(Arrays.asList(t1));
-		
-	
 
 	}
 

@@ -3,6 +3,10 @@ package com.casespringboot.api.rest.resources;
 import java.time.LocalDateTime;
 
 import javax.annotation.Resource;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -12,20 +16,22 @@ import com.casespringboot.domain.enums.Categoria;
 @Resource
 public class TopicoResource {
 
-	@NotNull(message = "Titulo obrigatório")
-	@Size(min=5, max=100, message = "Quantidade máxima de 100 caracteres e minima de 5 caracteres")
+	private Long id;
+	
 	private String titulo;
 
-	@NotNull(message = "Conteúdo obrigatório")
-	@Size(max = 15000, min = 50, message = "Quantidade máxima de 15000 caracteres e minima de 50 caracteres")
 	private String conteudo;
 
 	private LocalDateTime moment;
 
 	private boolean status;
 
-	@NotNull(message = "Categoria obrigatório")
 	private Categoria categoria;
+
+	
+	public Long getId() {
+		return id;
+	}
 
 	public TopicoResource() {
 	}
@@ -52,6 +58,7 @@ public class TopicoResource {
 
 	public Topico toEntity() {
 		Topico topico = new Topico();
+		topico.setId(this.id);
 		topico.setTitulo(this.titulo);
 		topico.setConteudo(this.conteudo);
 		topico.setDataCriacao(LocalDateTime.now());
@@ -62,6 +69,7 @@ public class TopicoResource {
 	}
 
 	public TopicoResource(Topico topico) {
+		this.id = topico.getId();
 		this.titulo = topico.getTitulo();
 		this.conteudo = topico.getConteudo();
 		this.moment = topico.getDataCriacao();

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import com.casespringboot.domain.enums.Categoria;
 import com.casespringboot.domain.services.TopicoService;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/topicos")
 public class TopicoEndpoint {
 
@@ -58,7 +60,7 @@ public class TopicoEndpoint {
 			@RequestParam(value = "titulo", required = false) String titulo,
 			@RequestParam(value = "categoria", required = false) Categoria categoria,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "limit", defaultValue = "24") Integer linesPerPage,
+			@RequestParam(value = "limit", defaultValue = "7") Integer linesPerPage,
 			@RequestParam(value = "orderBy", defaultValue = "dataCriacao") String orderBy,
 			@RequestParam(value = "direction", defaultValue = "DESC") String direction) {
 		Page<Topico> listTopicos = service.findByParameters(titulo, categoria, page, linesPerPage, orderBy, direction);

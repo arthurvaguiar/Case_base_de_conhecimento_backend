@@ -2,10 +2,12 @@ package com.casespringboot.domain.enums;
 
 public enum Categoria {
 	
-	COMPRAS,
-	VENDAS,
-	FINANCEIRO,
-	FORMULAS;
-	
-	
+	OUROCOMPRAS,
+	FRONTFARMA,
+	OUROFARMA,
+	OUROFORMULAS,
+	WEBCONVENIO,
+	ECOMMERCE,
+	BI,
+	FRANQUIAS;
 }
